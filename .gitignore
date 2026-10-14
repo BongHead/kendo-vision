@@ -218,3 +218,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# kendo-vision: footage, labels, weights and outputs stay out of git
+data/
+models/
+runs/
+weights/
+outputs/
+input/
+*.pt

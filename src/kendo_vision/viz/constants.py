@@ -1,0 +1,20 @@
+"""Constants for drawing."""
+import cv2
+
+from ..constants import (LEFT_ANKLE, LEFT_ELBOW, LEFT_HIP, LEFT_KNEE, LEFT_SHOULDER, LEFT_WRIST, RIGHT_ANKLE,
+                         RIGHT_ELBOW, RIGHT_HIP, RIGHT_KNEE, RIGHT_SHOULDER, RIGHT_WRIST)
+
+# pairs of keypoints joined by a line
+SKELETON = [
+    (LEFT_SHOULDER, RIGHT_SHOULDER), (LEFT_HIP, RIGHT_HIP),
+    (LEFT_SHOULDER, LEFT_ELBOW), (LEFT_ELBOW, LEFT_WRIST),
+    (RIGHT_SHOULDER, RIGHT_ELBOW), (RIGHT_ELBOW, RIGHT_WRIST),
+    (LEFT_SHOULDER, LEFT_HIP), (RIGHT_SHOULDER, RIGHT_HIP),
+    (LEFT_HIP, LEFT_KNEE), (LEFT_KNEE, LEFT_ANKLE),
+    (RIGHT_HIP, RIGHT_KNEE), (RIGHT_KNEE, RIGHT_ANKLE),
+]
+COLORS = {"red": (60, 60, 255), "white": (255, 255, 255)}  # BGR, by side
+SHINAI_COLOR, ZONE_COLOR = (0, 220, 255), (0, 200, 0)
+FONT = cv2.FONT_HERSHEY_SIMPLEX
+REFERENCE_HEIGHT = 720  # overlay sizes are given for a frame this tall
+BANNER_HOLD_SECONDS = 3.0  # how long a strike banner stays up

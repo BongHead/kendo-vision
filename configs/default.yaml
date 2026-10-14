@@ -1,0 +1,80 @@
+# Defaults, as printed by `kendo-vision config`. Edit values here; field notes are in src/kendo_vision/config.py.
+# Distances are in torso lengths (shoulder midpoint to hip midpoint) unless noted.
+model:
+  pose_weights: models/yolo26s-pose.pt
+  shinai_weights: models/shinai.pt
+  shinai_finder: yoloe
+  yoloe_weights: models/yoloe-11l-seg.pt
+  yoloe_prompted_weights: models/shinai-yoloe.pt
+  yoloe_confidence: 0.05
+  strikenet_weights: models/strikenet.pt
+  image_size: 960
+  shinai_image_size: 1280
+  pose_confidence: 0.35
+  shinai_confidence: 0.25
+  device: ''
+  half_precision: true
+camera:
+  width: 1280
+  height: 720
+  fps: 60
+track:
+  tracker: botsort.yaml
+  red_side: left
+  use_tasuki: false
+  tasuki_margin: 0.02
+  max_lost_seconds: 2.0
+  gate: 0.8
+  filter_players: true
+  player_threshold: 0.5
+  reclassify_every: 15
+shinai:
+  length_ratio: 2.3
+  hand_ratio: 4.5
+  min_hand_separation: 0.12
+  monouchi_fraction: 0.33
+zones:
+  men_radius: 0.3
+  tsuki_radius: 0.09
+  kote_radius: 0.09
+  kote_length: 0.5
+  do_radius: 0.11
+  do_low: 0.1
+  do_high: 0.6
+strike:
+  contact_distance: 0.12
+  min_speed: 8.0
+  min_approach: 0.4
+  max_body_speed: 20.0
+  speed_window_seconds: 0.15
+  refractory_seconds: 0.5
+  swept_below_fps: 45.0
+  buffer_seconds: 6.0
+audio:
+  enabled: true
+  sample_rate: 16000
+  offset_seconds: 0.0
+  mic_device: null
+validity:
+  mode: rubric
+  zanshin_seconds: 1.8
+  gate: 0.3
+  ippon: 0.65
+  borderline: 0.45
+  counter_seconds: 0.4
+  weights:
+    target: 1.0
+    datotsu_bu: 1.0
+    sae: 1.0
+    kiai: 0.7
+    fumikomi: 0.8
+    sync: 0.8
+    posture: 0.7
+    zanshin: 1.0
+match:
+  points_to_win: 2
+  lockout_seconds: 3.0
+net:
+  rate_hz: 60
+  before_seconds: 0.5
+  after_seconds: 2.0

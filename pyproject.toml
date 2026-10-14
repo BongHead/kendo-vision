@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kendo-vision"
+version = "0.1.0"
+description = "Strike detection and ippon judging for kendo matches from video or a live camera."
+readme = "README.md"
+requires-python = ">=3.10"
+# Install the CUDA build of torch first (see README); pip would otherwise pull the CPU build.
+dependencies = [
+    "ultralytics>=8.4.177",
+    "lap>=0.5.12",
+    "open_clip_torch",
+    "numpy",
+    "scipy",
+    "pyyaml",
+    "av",
+    "sounddevice",
+]
+
+[project.scripts]
+kendo-vision = "kendo_vision.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
